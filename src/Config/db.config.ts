@@ -1,17 +1,16 @@
 //importing modules
 import dotenv from 'dotenv'
+dotenv.config()
 import mongoose from 'mongoose'
 
-dotenv.config()
-
 //details from the env
-const username = process.env.username
+const username = process.env.name
 const password = process.env.password
 const dbName = 'TS'
-
+console.log('user name', process.env.name)
 //connection string to mongo atlas
 
-const connectionString =  'mongodb+srv://aye:KYUhkhbl7Aic8DNh@cluster0.gyow6.mongodb.net/TS?retryWrites=true&w=majority'
+const connectionString =  `mongodb+srv://${username}:${password}@cluster0.gyow6.mongodb.net/TS?retryWrites=true&w=majority`
 console.log('connectionString', connectionString)
 const options = {
     autoIndex: false, // Don't build indexes
